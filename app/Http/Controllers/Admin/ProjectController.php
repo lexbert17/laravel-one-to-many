@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreProjectsRequest;
 use App\Http\Requests\UpdateProjectRequest;
 use App\Models\Project;
+use App\Models\Type;
 use Illuminate\Http\Request;
 use \Illuminate\Support\Str;
 
@@ -29,7 +30,8 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        return view('admin.projects.create');
+        $types = Type::all();
+        return view('admin.projects.create', compact('types'));
     }
 
     /**
@@ -40,6 +42,7 @@ class ProjectController extends Controller
      */
     public function store(StoreProjectsRequest $request)
     {
+        
         $form_data = $request->validated();
         $project = new Project();
         $project->fill($form_data);

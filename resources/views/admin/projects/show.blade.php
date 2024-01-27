@@ -11,6 +11,10 @@
             Slug: {{ $project->slug }}
         </div>
 
+        <div class="mt-4">
+            Tipo: {{ $project->type->name }}
+        </div>
+
         <p class="mt-4">
             {{ $project->content }}
         </p>

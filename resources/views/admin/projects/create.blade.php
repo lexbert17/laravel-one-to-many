@@ -25,7 +25,18 @@
             <div class="mb-3">
                 <label for="content" class="form-label">Contenuto</label>
                 <textarea class="form-control" id="content" rows="3" name="content">{{ old('content') }}</textarea>
-            </div>      
+            </div>    
+            
+            <div class="mb-3">
+            <select id="type" name="type_id" class="form-select" aria-label="Default select example">
+            <label for="type"></label>
+                <option selected>Seleziona il tipo di progetto</option>
+                @foreach ($types as $type)
+                <option value="{{$type->id}}">{{$type->name}}</option>  
+                @endforeach
+                
+              </select>
+            </div> 
             
             <button class="btn btn-success" type="submit">Salva</button>
 
